@@ -27,3 +27,22 @@ function playRound(userChoice, computerSelection){
         return "Check your spell";
     }
 }
+
+let playerScore = 0;
+let computerScore = 0;
+
+
+for(let i = 0; i < 5; i++){
+    const userInput = prompt("Type");
+    const userChoice = userInput.toLowerCase();
+    const computerSelection = getComputerChoice();
+    console.log(playRound(userChoice, computerSelection));
+    console.log("your score = " + playerScore);
+    console.log("Computer's score = " + computerScore);
+}
+
+
+
+
+
+
