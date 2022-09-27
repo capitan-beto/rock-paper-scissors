@@ -30,7 +30,12 @@ function playRound(userChoice, computerSelection){
 
 let playerScore = 0;
 let computerScore = 0;
-
+let winner = (playerScore, computerScore) =>{
+    if(computerScore > playerScore){
+        return ("HA! you lost dummy!");
+    } else if (computerScore < playerScore){
+        return ("Good job pal! you won");
+    }}
 
 for(let i = 0; i < 5; i++){
     const userInput = prompt("Type") || "";
@@ -39,7 +44,11 @@ for(let i = 0; i < 5; i++){
     console.log(playRound(userChoice, computerSelection));
     console.log("your score = " + playerScore);
     console.log("Computer's score = " + computerScore);
+    if (i === 4){
+        alert(winner(playerScore, computerScore));
+    }
 }
+
 
 
 
