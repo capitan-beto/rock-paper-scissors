@@ -24,7 +24,7 @@ function playRound(userChoice, computerSelection){
             playerScore++;
             return "Player has won";
     } else{
-        return "Check your spell";
+        alert("check your spell");
     }
 }
 
@@ -33,13 +33,14 @@ let computerScore = 0;
 
 
 for(let i = 0; i < 5; i++){
-    const userInput = prompt("Type");
+    const userInput = prompt("Type") || "";
     const userChoice = userInput.toLowerCase();
     const computerSelection = getComputerChoice();
     console.log(playRound(userChoice, computerSelection));
     console.log("your score = " + playerScore);
     console.log("Computer's score = " + computerScore);
 }
+
 
 
 
