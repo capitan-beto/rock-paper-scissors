@@ -48,7 +48,7 @@ let matchWinner = "";
 
 
 const btns = document.querySelector("#btns")
-btns.setAttribute("style", "background: salmon; border: solid 2px red");
+btns.setAttribute("style", "background: salmon; border: solid 2px red"); //remember to change this
 
 const paperBtn = document.createElement("button");
 paperBtn.classList.add("paper");
@@ -74,7 +74,7 @@ btns.appendChild(scissorsBtn);
 //Match score DOM elements.
 
 const container = document.querySelector("#container");
-container.setAttribute("style", "background: lightblue; border: solid 2px blue;")
+container.setAttribute("style", "background: lightblue; border: solid 2px blue;") //don't forget to change this.
 
 const scoreDiv = document.createElement("div");
 scoreDiv.setAttribute("id", "score");
@@ -83,17 +83,15 @@ container.appendChild(scoreDiv);
 const paraPlayer = document.createElement("p");
 paraPlayer.classList.add("player-score");
 paraPlayer.textContent = `Player score: ${playerScore}`;
+scoreDiv.appendChild(paraPlayer);
 
 const paraComputer = document.createElement("p");
 paraComputer.classList.add("computer-score");
 paraComputer.textContent = `Computer score: ${computerScore}`;
-
-scoreDiv.appendChild(paraPlayer);
 scoreDiv.appendChild(paraComputer);
 
 const result = document.createElement("p");
 result.classList.add("match-winner");
-
 scoreDiv.appendChild(result);
 
 const match = document.querySelectorAll("button");
