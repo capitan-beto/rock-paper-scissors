@@ -35,21 +35,19 @@ function winner(playerScore, computerScore){
     } else if (computerScore === 5){
         result.textContent = "Dumb-o! You loose."; 
         playAgain(paraPlayer, paraComputer);
-    } else {
-        result.textContent = "";
     }}
 
 function playAgain(paraPlayer, paraComputer){
-    paraPlayer.textContent = "";
-    paraComputer.textContent = "";
+    paraPlayer.style.display = "none";
+    paraComputer.style.display = "none";
+    btns.style.display = "none";
     const newMatchBtn = document.createElement("button");
     newMatchBtn.textContent = "Play again?";
     newMatchBtn.addEventListener("click", () => {
         window.location.reload();
-    })
+    },{once: true});
     container.appendChild(newMatchBtn);
 }
-
 
 
 let userInput = "";
@@ -57,8 +55,6 @@ let playerScore = 0;
 let computerScore = 0;
 let roundWinner = "";
 let matchWinner = "";
-
-
 
 const btns = document.querySelector("#btns");
 btns.setAttribute("style", "background: salmon; border: solid 2px red"); //remember to change this
@@ -124,6 +120,7 @@ const paraRound = document.createElement("p");
 paraRound.classList.add("round-result");
 paraRound.textContent = "Round winner: ";
 btns.appendChild(paraRound);
+
 
 
 
