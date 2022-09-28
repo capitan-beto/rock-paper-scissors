@@ -30,12 +30,26 @@ function playRound(userInput){
 
 function winner(playerScore, computerScore){
     if (playerScore === 5){
-        result.textContent = ("Good job boi! You win.");
+        result.textContent = "Good job boi! You win.";
+        playAgain(paraPlayer, paraComputer);
     } else if (computerScore === 5){
-        result.textContent = "Dumb-o! You loose.";
+        result.textContent = "Dumb-o! You loose."; 
+        playAgain(paraPlayer, paraComputer);
     } else {
         result.textContent = "";
     }}
+
+function playAgain(paraPlayer, paraComputer){
+    paraPlayer.textContent = "";
+    paraComputer.textContent = "";
+    const newMatchBtn = document.createElement("button");
+    newMatchBtn.textContent = "Play again?";
+    newMatchBtn.addEventListener("click", () => {
+        window.location.reload();
+    })
+    container.appendChild(newMatchBtn);
+}
+
 
 
 let userInput = "";
@@ -46,8 +60,9 @@ let matchWinner = "";
 
 
 
-const btns = document.querySelector("#btns")
+const btns = document.querySelector("#btns");
 btns.setAttribute("style", "background: salmon; border: solid 2px red"); //remember to change this
+
 
 const paperBtn = document.createElement("button");
 paperBtn.classList.add("paper");
@@ -109,6 +124,10 @@ const paraRound = document.createElement("p");
 paraRound.classList.add("round-result");
 paraRound.textContent = "Round winner: ";
 btns.appendChild(paraRound);
+
+
+
+
 
 
 
