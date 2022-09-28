@@ -28,7 +28,7 @@ function playRound(userChoice, computerSelection){
     }
 }
 
-
+// Variables
 
 let playerScore = 0;
 let computerScore = 0;
@@ -51,28 +51,51 @@ for(let i = 0; i < 5; i++){
     const computerSelection = getComputerChoice();
     playRound(userChoice, computerSelection);
     console.log(roundWinner);
-    console.log("your score = " + playerScore);
-    console.log("Computer's score = " + computerScore);
+    //console.log("your score = " + playerScore);
+    //console.log("Computer's score = " + computerScore);
     if (i === 4){
-        console.log(winner(playerScore, computerScore));
+        console.log(winner(playerScore, computerScore)); //try w/ return.
     }
 }
 
 
 
-//DOM elements.
+//Choice selection DOM elements.
 
-const container = document.querySelector("#container");
-container.setAttribute("style", "background: lightblue; border: solid 2px blue;")
+const btns = document.querySelector("#btns")
+btns.setAttribute("style", "background: salmon; border: solid 2px red");
 
+const paperBtn = document.createElement("button");
+paperBtn.classList.add("paper");
+paperBtn.textContent = "🖐🏿";
 
-const scoreDiv = document.createElement("div");
-scoreDiv.setAttribute("id", "score");
-container.appendChild(scoreDiv);
+const rockBtn = document.createElement("button");
+rockBtn.classList.add("rock");
+rockBtn.textContent = "🖐🏽";
+
+const scissorsBtn = document.createElement("button");
+scissorsBtn.classList.add("scissors");
+scissorsBtn.textContent = "✌🏻";
 
 const paraRound = document.createElement("p");
 paraRound.classList.add("round-result");
 paraRound.textContent = roundWinner;
+
+btns.appendChild(paperBtn);
+btns.appendChild(rockBtn);
+btns.appendChild(scissorsBtn);
+btns.appendChild(paraRound);
+
+
+
+//Match score DOM elements.
+
+const container = document.querySelector("#container");
+container.setAttribute("style", "background: lightblue; border: solid 2px blue;")
+
+const scoreDiv = document.createElement("div");
+scoreDiv.setAttribute("id", "score");
+container.appendChild(scoreDiv);
 
 const paraPlayer = document.createElement("p");
 paraPlayer.classList.add("player-score");
@@ -82,7 +105,6 @@ const paraComputer = document.createElement("p");
 paraComputer.classList.add("computer-score");
 paraComputer.textContent = `Computer score: ${computerScore}`;
 
-scoreDiv.appendChild(paraRound);
 scoreDiv.appendChild(paraPlayer);
 scoreDiv.appendChild(paraComputer);
 
