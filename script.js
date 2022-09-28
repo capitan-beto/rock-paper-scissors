@@ -10,17 +10,17 @@ function getComputerChoice(){
     }
 }
 
-function playRound(userInput, computerSelection){
-    if(userInput === computerSelection){
+function playRound(userInput){
+    if(userInput === getComputerChoice()){
         roundWinner  = "Tie";
-    } else if(userInput === "rock" && computerSelection === "paper" 
-        || userInput === "paper" && computerSelection === "scissors" 
-        || userInput === "scissors" && computerSelection === "rock"){
+    } else if(userInput === "rock" && getComputerChoice() === "paper" 
+        || userInput === "paper" && getComputerChoice() === "scissors" 
+        || userInput === "scissors" && getComputerChoice() === "rock"){
             computerScore++;
             roundWinner =  "Computer has won";
-    } else if(userInput === "rock" && computerSelection === "scissors"
-        || userInput === "paper" && computerSelection === "rock"
-        || userInput === "scissors" && computerSelection === "paper"){
+    } else if(userInput === "rock" && getComputerChoice() === "scissors"
+        || userInput === "paper" && getComputerChoice() === "rock"
+        || userInput === "scissors" && getComputerChoice() === "paper"){
             playerScore++;
             roundWinner = "Player has won";
     } else{
@@ -39,7 +39,6 @@ function winner(playerScore, computerScore){
 
 
 let userInput = "";
-let computerSelection = getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = "";
@@ -97,7 +96,8 @@ scoreDiv.appendChild(result);
 const match = document.querySelectorAll("button");
 match.forEach((button) => {
     button.addEventListener("click", () => {
-        playRound(userInput, computerSelection);
+        getComputerChoice();
+        playRound(userInput);
         paraRound.textContent = `${roundWinner}`;
         paraPlayer.textContent = `Player score: ${playerScore}`;
         paraComputer.textContent = `Computer score: ${computerScore}`;
