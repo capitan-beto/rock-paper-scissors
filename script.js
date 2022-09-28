@@ -10,17 +10,17 @@ function getComputerChoice(){
     }
 }
 
-function playRound(userChoice, computerSelection){
-    if(userChoice === computerSelection){
+function playRound(userInput, computerSelection){
+    if(userInput === computerSelection){
         roundWinner  = "Tie";
-    } else if(userChoice === "rock" && computerSelection === "paper" 
-        || userChoice === "paper" && computerSelection === "scissors" 
-        || userChoice === "scissors" && computerSelection === "paper"){
+    } else if(userInput === "rock" && computerSelection === "paper" 
+        || userInput === "paper" && computerSelection === "scissors" 
+        || userInput === "scissors" && computerSelection === "rock"){
             computerScore++;
             roundWinner =  "Computer has won";
-    } else if(userChoice === "rock" && computerSelection === "scissors"
-        || userChoice === "paper" && computerSelection === "rock"
-        || userChoice === "scissors" && computerSelection === "paper"){
+    } else if(userInput === "rock" && computerSelection === "scissors"
+        || userInput === "paper" && computerSelection === "rock"
+        || userInput === "scissors" && computerSelection === "paper"){
             playerScore++;
             roundWinner = "Player has won";
     } else{
@@ -29,7 +29,8 @@ function playRound(userChoice, computerSelection){
 }
 
 // Variables
-
+let userInput = "";
+let computerSelection = getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = "";
@@ -44,19 +45,18 @@ let winner = (playerScore, computerScore) =>{
 }
 
 
-
-for(let i = 0; i < 5; i++){
-    const userInput = prompt("Type") || "";
+/*for(let i = 0; i < 5; i++){
+    //const userInput = prompt("Type") || "";
     const userChoice = userInput.toLowerCase();
-    const computerSelection = getComputerChoice();
+    //const computerSelection = getComputerChoice();
     playRound(userChoice, computerSelection);
-    console.log(roundWinner);
+    //console.log(roundWinner);
     //console.log("your score = " + playerScore);
     //console.log("Computer's score = " + computerScore);
     if (i === 4){
         console.log(winner(playerScore, computerScore)); //try w/ return.
     }
-}
+}*/
 
 
 
@@ -67,24 +67,22 @@ btns.setAttribute("style", "background: salmon; border: solid 2px red");
 
 const paperBtn = document.createElement("button");
 paperBtn.classList.add("paper");
-paperBtn.textContent = "🖐🏿";
+paperBtn.textContent = "🖐🏽";
+paperBtn.addEventListener("click", (e) => {userInput = "paper"});
 
 const rockBtn = document.createElement("button");
 rockBtn.classList.add("rock");
-rockBtn.textContent = "🖐🏽";
+rockBtn.textContent = "✊🏿";
+rockBtn.addEventListener("click", (e) => {userInput = "rock"});
 
 const scissorsBtn = document.createElement("button");
 scissorsBtn.classList.add("scissors");
 scissorsBtn.textContent = "✌🏻";
-
-const paraRound = document.createElement("p");
-paraRound.classList.add("round-result");
-paraRound.textContent = roundWinner;
+scissorsBtn.addEventListener("click", (e) => {userInput = "scissors"});
 
 btns.appendChild(paperBtn);
 btns.appendChild(rockBtn);
 btns.appendChild(scissorsBtn);
-btns.appendChild(paraRound);
 
 
 
@@ -114,6 +112,22 @@ result.textContent = winner(playerScore, computerScore);
 
 scoreDiv.appendChild(result);
 
+// match
+
+const match = document.querySelectorAll("button");
+match.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(userInput, computerSelection);
+        paraRound.textContent = `${roundWinner}`;
+        paraPlayer.textContent = `Player score: ${playerScore}`;
+        paraComputer.textContent = `Computer score: ${computerScore}`;
+    })
+});
+
+const paraRound = document.createElement("p");
+paraRound.classList.add("round-result");
+paraRound.textContent = "Round winner: ";
+btns.appendChild(paraRound);
 
 
 
