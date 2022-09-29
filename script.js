@@ -42,6 +42,7 @@ function playAgain(paraPlayer, paraComputer){
     paraComputer.style.display = "none";
     btns.style.display = "none";
     const newMatchBtn = document.createElement("button");
+    newMatchBtn.classList.add("play-again")
     newMatchBtn.textContent = "Play again?";
     newMatchBtn.addEventListener("click", () => {
         window.location.reload();

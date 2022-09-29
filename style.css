@@ -32,6 +32,10 @@ button{
     border-radius: 1rem;
 }
 
+.play-again{
+    font-size: 1rem;
+}
+
 .round-result{
     text-align: center;
     text-transform: uppercase;
@@ -41,5 +45,7 @@ button{
 #container{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 50vw;
 }
