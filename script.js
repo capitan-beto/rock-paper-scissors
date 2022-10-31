@@ -36,15 +36,17 @@ function playRound(userInput){
 function winner(playerScore, computerScore){
     if (playerScore === 5){
         result.textContent = "Good job boi! You win.";
+        paraPlayer.textContent = `Player score: ${playerScore}`;
+        paraComputer.textContent = `Computer score: ${computerScore}`;
         playAgain(paraPlayer, paraComputer);
     } else if (computerScore === 5){
         result.textContent = "Dumb-o! You loose."; 
+        paraPlayer.textContent = `Player score: ${playerScore}`;
+        paraComputer.textContent = `Computer score: ${computerScore}`;
         playAgain(paraPlayer, paraComputer);
     }}
 
-function playAgain(paraPlayer, paraComputer){
-    paraPlayer.style.display = "none";
-    paraComputer.style.display = "none";
+function playAgain(){
     btns.style.display = "none";
     const newMatchBtn = document.createElement("button");
     newMatchBtn.classList.add("play-again")
