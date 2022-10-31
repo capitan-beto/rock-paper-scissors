@@ -25,6 +25,7 @@ function playRound(userInput){
             computerScore++;
             console.log("computer won");
             roundWinner =  "Computer has won";
+            
     } else if(userInput === "rock" && getComputerChoice() === "scissors"
         || userInput === "paper" && getComputerChoice() === "rock"
         || userInput === "scissors" && getComputerChoice() === "paper"){
@@ -78,13 +79,6 @@ btns.appendChild(paperBtn);
 btns.appendChild(rockBtn);
 btns.appendChild(scissorsBtn);
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach((item) => {
-    item.addEventListener("click", () =>{
-        userInput = item.className;
-    })
-})
-
 //Match score DOM elements.
 
 const container = document.querySelector("#container");
@@ -111,9 +105,11 @@ scoreDiv.appendChild(result);
 const match = document.querySelectorAll("button");
 match.forEach((button) => {
     button.addEventListener("click", () => {
+        userInput = button.className;
         getComputerChoice();
         playRound(userInput);
         paraRound.textContent = `${roundWinner}`;
+        setTimeout(() => (paraRound.textContent = ""), 500)
         paraPlayer.textContent = `Player score: ${playerScore}`;
         paraComputer.textContent = `Computer score: ${computerScore}`;
         winner(playerScore, computerScore);
