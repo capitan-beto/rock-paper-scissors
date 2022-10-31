@@ -13,15 +13,18 @@ function getComputerChoice(){
 function playRound(userInput){
     if(userInput === getComputerChoice()){
         roundWinner  = "Tie";
+        console.log("tie");
     } else if(userInput === "rock" && getComputerChoice() === "paper" 
         || userInput === "paper" && getComputerChoice() === "scissors" 
         || userInput === "scissors" && getComputerChoice() === "rock"){
             computerScore++;
+            console.log("computer won");
             roundWinner =  "Computer has won";
     } else if(userInput === "rock" && getComputerChoice() === "scissors"
         || userInput === "paper" && getComputerChoice() === "rock"
         || userInput === "scissors" && getComputerChoice() === "paper"){
             playerScore++;
+            console.log("player won");
             roundWinner = "Player has won";
     } else{
         return ("check your spell");
@@ -58,29 +61,30 @@ let roundWinner = "";
 let matchWinner = "";
 
 const btns = document.querySelector("#btns");
-btns.setAttribute("style", "background: salmon; border: solid 2px red"); //remember to change this
-
+btns.setAttribute("style", "background: salmon; border: solid 2px red"); 
 
 const paperBtn = document.createElement("button");
 paperBtn.classList.add("paper");
 paperBtn.textContent = "🖐🏽";
-paperBtn.addEventListener("click", (e) => {userInput = "paper"});
 
 const rockBtn = document.createElement("button");
 rockBtn.classList.add("rock");
 rockBtn.textContent = "✊🏿";
-rockBtn.addEventListener("click", (e) => {userInput = "rock"});
 
 const scissorsBtn = document.createElement("button");
 scissorsBtn.classList.add("scissors");
 scissorsBtn.textContent = "✌🏻";
-scissorsBtn.addEventListener("click", (e) => {userInput = "scissors"});
 
 btns.appendChild(paperBtn);
 btns.appendChild(rockBtn);
 btns.appendChild(scissorsBtn);
 
-
+const buttons = document.querySelectorAll("button");
+buttons.forEach((item) => {
+    item.addEventListener("click", () =>{
+        userInput = item.className;
+    })
+})
 
 //Match score DOM elements.
 
