@@ -118,7 +118,7 @@ match.forEach((button) => {
 
 const paraRound = document.createElement("p");
 paraRound.classList.add("round-result");
-paraRound.textContent = "Round winner: ";
+paraRound.textContent = "";
 btns.appendChild(paraRound);
 
 

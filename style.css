@@ -24,6 +24,10 @@ body{
     text-align: center;
 }
 
+.round-result{
+    height: 1.5rem;
+}
+
 button{
     height: 5rem;
     width: 5rem;
