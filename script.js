@@ -1,12 +1,17 @@
+let userInput = "";
+let playerScore = 0;
+let computerScore = 0;
+let roundWinner = "";
+let matchWinner = "";
+
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3);
-    switch (choice){
-        case 0:
-            return "rock";
-        case 1:
-            return "scissors";
-        case 2:
-            return "paper";
+    if (choice = 1){
+        return "rock";
+    } else if (choice = 2){
+        return "scissors";2
+    } else if (choice = 3){
+        return "paper";
     }
 }
 
@@ -53,12 +58,6 @@ function playAgain(paraPlayer, paraComputer){
     container.appendChild(newMatchBtn);
 }
 
-
-let userInput = "";
-let playerScore = 0;
-let computerScore = 0;
-let roundWinner = "";
-let matchWinner = "";
 
 const btns = document.querySelector("#btns");
 btns.setAttribute("style", "background: salmon; border: solid 2px red"); 
