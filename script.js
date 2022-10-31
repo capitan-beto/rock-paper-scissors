@@ -3,34 +3,30 @@ let playerScore = 0;
 let computerScore = 0;
 let roundWinner = "";
 let matchWinner = "";
+let computerChoice = "";
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3);
-    if (choice = 1){
-        return "rock";
-    } else if (choice = 2){
-        return "scissors";2
-    } else if (choice = 3){
-        return "paper";
-    }
-}
+        if (choice === 0){
+            computerChoice =  "rock";
+        } else if (choice === 1){
+            computerChoice =  "scissors";
+        } else if (choice === 2){
+            computerChoice =  "paper";
+        }}
 
 function playRound(userInput){
-    if(userInput === getComputerChoice()){
+    if(userInput === computerChoice){
         roundWinner  = "Tie";
-        console.log("tie");
-    } else if(userInput === "rock" && getComputerChoice() === "paper" 
-        || userInput === "paper" && getComputerChoice() === "scissors" 
-        || userInput === "scissors" && getComputerChoice() === "rock"){
+    } else if(userInput === "rock" && computerChoice === "paper" 
+        || userInput === "paper" && computerChoice === "scissors" 
+        || userInput === "scissors" && computerChoice === "rock"){
             computerScore++;
-            console.log("computer won");
             roundWinner =  "Computer has won";
-            
-    } else if(userInput === "rock" && getComputerChoice() === "scissors"
-        || userInput === "paper" && getComputerChoice() === "rock"
-        || userInput === "scissors" && getComputerChoice() === "paper"){
+    } else if(userInput === "rock" && computerChoice === "scissors"
+        || userInput === "paper" && computerChoice === "rock"
+        || userInput === "scissors" && computerChoice === "paper"){
             playerScore++;
-            console.log("player won");
             roundWinner = "Player has won";
     } else{
         return ("check your spell");
