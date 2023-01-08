@@ -16,7 +16,7 @@ function getComputerChoice(){
             computerChoice =  "scissors";
             computerBtn.textContent = "✌🏻";
             setTimeout(() => {computerBtn.textContent = ""}, 500);
-            
+
         } else if (choice === 2){
             computerChoice =  "paper";
             computerBtn.textContent = "🖐🏽";
@@ -56,6 +56,7 @@ function winner(playerScore, computerScore){
 
 function playAgain(){
     btns.style.display = "none";
+    computerBtn.style.display  = "none";
     const newMatchBtn = document.createElement("button");
     newMatchBtn.classList.add("play-again")
     newMatchBtn.textContent = "Play again?";
@@ -121,7 +122,7 @@ match.forEach((button) => {
 const paraRound = document.createElement("p");
 paraRound.classList.add("round-result");
 paraRound.textContent = "";
-btns.appendChild(paraRound);
+container.appendChild(paraRound);
 
 const cpuChoiceDisplay = document.querySelector(".computer-choice");
 const computerBtn = document.createElement("button");
