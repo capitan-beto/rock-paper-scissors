@@ -9,10 +9,18 @@ function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3);
         if (choice === 0){
             computerChoice =  "rock";
+            computerBtn.textContent = "✊🏿";
+            setTimeout(() => {computerBtn.textContent = ""}, 500);
+
         } else if (choice === 1){
             computerChoice =  "scissors";
+            computerBtn.textContent = "✌🏻";
+            setTimeout(() => {computerBtn.textContent = ""}, 500);
+            
         } else if (choice === 2){
             computerChoice =  "paper";
+            computerBtn.textContent = "🖐🏽";
+            setTimeout(() => {computerBtn.textContent = ""}, 500);
         }}
 
 function playRound(userInput){
@@ -57,9 +65,7 @@ function playAgain(){
     container.appendChild(newMatchBtn);
 }
 
-
 const btns = document.querySelector("#btns");
-btns.setAttribute("style", "background: salmon; border: solid 2px red"); 
 
 const paperBtn = document.createElement("button");
 paperBtn.classList.add("paper");
@@ -77,10 +83,8 @@ btns.appendChild(paperBtn);
 btns.appendChild(rockBtn);
 btns.appendChild(scissorsBtn);
 
-//Match score DOM elements.
 
 const container = document.querySelector("#container");
-container.setAttribute("style", "background: lightblue; border: solid 2px blue;") //don't forget to change this.
 
 const scoreDiv = document.createElement("div");
 scoreDiv.setAttribute("id", "score");
@@ -118,6 +122,11 @@ const paraRound = document.createElement("p");
 paraRound.classList.add("round-result");
 paraRound.textContent = "";
 btns.appendChild(paraRound);
+
+const cpuChoiceDisplay = document.querySelector(".computer-choice");
+const computerBtn = document.createElement("button");
+computerBtn.textContent = "";
+cpuChoiceDisplay.appendChild(computerBtn);
 
 
 

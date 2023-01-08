@@ -15,13 +15,21 @@ body{
 
 #match{
     display: flex;
-    justify-content: center;
-    align-content: center;
+    width: 50vw;
+    justify-content: space-between;
+    align-content: center; 
+}
+
+.computer-choice {
+    background: #000;
 }
 
 #btns{
-    width: 50vw;
     text-align: center;
+    border-radius: 5px;
+    background: salmon; 
+    border: solid 2px rgb(255, 0, 0, .6);
+
 }
 
 .round-result{
@@ -52,4 +60,7 @@ button{
     flex-direction: column;
     align-items: center;
     width: 50vw;
+    border-radius: 5px;
+    background: lightblue;
+     border: solid 2px blue;
 }
