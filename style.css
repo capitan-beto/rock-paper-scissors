@@ -39,7 +39,7 @@ body{
 button{
     height: 5rem;
     width: 5rem;
-    font-size: 3rem;
+    font-size: 5vh;
     margin: 1rem;
     border-radius: 8px;
     position: relative;
@@ -48,7 +48,7 @@ button{
     border: none;
 }
 
-button::after{
+button:hover::after{
     content: "";
     position: absolute;
     bottom: 0;
@@ -59,6 +59,10 @@ button::after{
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: #fde047;
+}
+
+#btns > button:hover {
+    background: rgba(255, 255, 255, .5);
 }
 
 .play-again{
