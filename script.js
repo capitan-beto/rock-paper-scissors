@@ -10,17 +10,17 @@ function getComputerChoice(){
         if (choice === 0){
             computerChoice =  "rock";
             computerBtn.textContent = "✊🏿";
-            setTimeout(() => {computerBtn.textContent = ""}, 500);
+            setTimeout(() => {computerBtn.textContent = ""}, 1000);
 
         } else if (choice === 1){
             computerChoice =  "scissors";
             computerBtn.textContent = "✌🏻";
-            setTimeout(() => {computerBtn.textContent = ""}, 500);
+            setTimeout(() => {computerBtn.textContent = ""}, 1000);
 
         } else if (choice === 2){
             computerChoice =  "paper";
             computerBtn.textContent = "🖐🏽";
-            setTimeout(() => {computerBtn.textContent = ""}, 500);
+            setTimeout(() => {computerBtn.textContent = ""}, 1000);
         }}
 
 function playRound(userInput){
@@ -112,7 +112,7 @@ match.forEach((button) => {
         getComputerChoice();
         playRound(userInput);
         paraRound.textContent = `${roundWinner}`;
-        setTimeout(() => (paraRound.textContent = ""), 500)
+        setTimeout(() => (paraRound.textContent = ""), 1000)
         paraPlayer.textContent = `Player score: ${playerScore}`;
         paraComputer.textContent = `Computer score: ${computerScore}`;
         winner(playerScore, computerScore);
