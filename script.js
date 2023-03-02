@@ -41,18 +41,27 @@ function playRound(userInput){
     }
 }
 
-function winner(playerScore, computerScore){
+function getWinner(playerScore, computerScore){
     if (playerScore === 5){
-        result.textContent = "Good job boi! You win.";
-        paraPlayer.textContent = `Player score: ${playerScore}`;
-        paraComputer.textContent = `Computer score: ${computerScore}`;
-        playAgain(paraPlayer, paraComputer);
+        setTimeout(() => {
+            winnMsg("Good job boi! You win.");
+            playAgain(paraPlayer, paraComputer);
+        }, 1000);
+        
+
     } else if (computerScore === 5){
-        result.textContent = "Dumb-o! You loose."; 
-        paraPlayer.textContent = `Player score: ${playerScore}`;
-        paraComputer.textContent = `Computer score: ${computerScore}`;
-        playAgain(paraPlayer, paraComputer);
-    }}
+        setTimeout(() => {
+            winnMsg("Dumb-o! You loose.");
+            playAgain(paraPlayer, paraComputer);
+        }, 1000);
+    }
+}
+
+function winnMsg(winningMsg){
+    result.textContent = winningMsg;
+    paraPlayer.textContent = `Player score: ${playerScore}`;
+    paraComputer.textContent = `Computer score: ${computerScore}`;
+}
 
 function playAgain(){
     btns.style.display = "none";
@@ -115,7 +124,7 @@ match.forEach((button) => {
         setTimeout(() => (paraRound.textContent = ""), 1000)
         paraPlayer.textContent = `Player score: ${playerScore}`;
         paraComputer.textContent = `Computer score: ${computerScore}`;
-        winner(playerScore, computerScore);
+        getWinner(playerScore, computerScore);
     })
 });
 

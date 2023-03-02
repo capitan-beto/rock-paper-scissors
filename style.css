@@ -18,7 +18,7 @@ body{
     width: 50vw;
     justify-content: space-between;
     align-content: center;
-    background: rgb(0, 0, 0, .5);
+    background: rgb(0, 0, 0, .7);
 }
 
 .computer-choice {
@@ -48,7 +48,7 @@ button{
     border: none;
 }
 
-button:hover::after{
+#btns > button:hover::after, .play-again:hover::after{
     content: "";
     position: absolute;
     bottom: 0;
@@ -61,7 +61,7 @@ button:hover::after{
     background-color: #fde047;
 }
 
-#btns > button:hover {
+#btns > button:hover, .play-again:hover {
     background: rgba(255, 255, 255, .5);
 }
 
@@ -82,6 +82,6 @@ button:hover::after{
     align-items: center;
     width: 50vw;
     border-radius: 5px;
-    background: rgb(0, 0, 0, .5);
+    background: rgb(0, 0, 0, .7);
     color: wheat;
 }
